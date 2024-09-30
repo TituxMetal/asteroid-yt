@@ -1,0 +1,30 @@
+<style>
+  header {
+    @apply flex flex-col bg-blue-800 px-4 py-6;
+    @apply sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  header a {
+    @apply text-2xl font-bold text-blue-200;
+    @apply sm:text-4xl;
+  }
+
+  nav {
+    @apply flex flex-col;
+    @apply sm:flex-row sm:items-center sm:space-x-3.5;
+  }
+
+  nav a {
+    @apply text-lg font-bold text-blue-300 hover:text-blue-400 hover:underline;
+    @apply sm:text-xl;
+  }
+</style>
+
+<header>
+  <a href='/'> Asteroid</a>
+  <nav>
+    <a href='/about'>About</a>
+    <a href='/blog'>Blog</a>
+    <a href='/contact-us'>Contact Us</a>
+  </nav>
+</header>
