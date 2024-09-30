@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+import hero from '~/assets/hero.jpg'
 import Layout from '~/layouts/Layout.astro'
 import '~/styles/globals.css'
 ---
@@ -8,7 +10,7 @@ import '~/styles/globals.css'
     <h1 class='text-4xl font-bold text-blue-300'>Welcome to Asteroid</h1>
     <p class='text-xl text-blue-300'>Asteroid is a platform for creating and sharing knowledge.</p>
     <figure class='mt-6 rounded-lg overflow-hidden'>
-      <img src='/hero.jpg' alt='Asteroid' class='w-full h-72 object-cover' />
+      <Image src={hero} alt='Asteroid' class='w-full object-cover' height={300} />
     </figure>
   </main>
 </Layout>
