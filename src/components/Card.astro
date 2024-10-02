@@ -1,0 +1,31 @@
+---
+import HeroImage from './HeroImage.astro'
+
+interface CardProps {
+  title: string
+  url: string
+  content: string
+  thumbnail: string
+  date: Date
+}
+
+const { title, url, content, thumbnail, date } = Astro.props as CardProps
+---
+
+<section class='rounded-lg border-2 border-zinc-600'>
+  <HeroImage url={thumbnail} alt={title} width={300} />
+  <div class='px-5 py-3.5'>
+    <a href={url} class='text-blue-300 hover:text-blue-400'>
+      <h2 class='text-xl mt-2.5 font-bold'>{title}</h2>
+      <p class='text-zinc-400'>{date.toString().slice(0, 10)}</p>
+    </a>
+    <p class='text-zinc-200 mt-3.5'>
+      {content.slice(0, 100)}
+    </p>
+    <a
+      href={`/posts/${url}`}
+      class='text-blue-300 mt-3.5 hover:text-blue-400 hover:underline block hover:underline-offset-2'
+      >Read more...</a
+    >
+  </div>
+</section>
