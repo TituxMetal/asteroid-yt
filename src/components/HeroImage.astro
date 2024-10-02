@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets'
+
+interface HeroImageProps {
+  url: string
+  alt: string
+  height: number
+  width: number
+}
+
+const { url, alt, width, height } = Astro.props as HeroImageProps
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
+
+if (!images[url])
+  throw new Error(`"${url}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
+
+const imageSrc = images[url]()
+---
+
+<Image
+  src={imageSrc}
+  alt={alt}
+  width={width}
+  height={height}
+  class='aspect-video overflow-hidden object-cover w-full rounded-t-lg'
+/>
