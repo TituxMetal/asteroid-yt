@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content'
+import Card from '~/components/Card.astro'
+import Layout from '~/layouts/Layout.astro'
+
+const allPosts = await getCollection('posts')
+---
+
+<Layout title='Asteroid | Blog'>
+  <h1 class='text-4xl font-bold text-blue-300'>Blog</h1>
+  <p class='text-xl text-blue-300'>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+  </p>
+  <section class='grid grid-cols-2 md:grid-cols-3 max-w-screen-xl mx-auto gap-4 mt-12'>
+    {
+      allPosts.map(post => (
+        <Card
+          title={post.data.title}
+          url={`/posts/${post.slug}`}
+          content={post.body}
+          date={post.data.date.toString().slice(0, 10)}
+          thumbnail={post.data.thumbnail}
+        />
+      ))
+    }
+  </section>
+</Layout>
