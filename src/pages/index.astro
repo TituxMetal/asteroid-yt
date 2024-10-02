@@ -2,15 +2,12 @@
 import { Image } from 'astro:assets'
 import hero from '~/assets/hero.jpg'
 import Layout from '~/layouts/Layout.astro'
-import '~/styles/globals.css'
 ---
 
 <Layout title='Asteroid | Home'>
-  <main class='mx-auto max-w-screen-xl flex-1 py-6'>
-    <h1 class='text-4xl font-bold text-blue-300'>Welcome to Asteroid</h1>
-    <p class='text-xl text-blue-300'>Asteroid is a platform for creating and sharing knowledge.</p>
-    <figure class='mt-6 rounded-lg overflow-hidden'>
-      <Image src={hero} alt='Asteroid' class='w-full object-cover' height={300} />
-    </figure>
-  </main>
+  <h1 class='text-4xl font-bold text-blue-300'>Welcome to Asteroid</h1>
+  <p class='text-xl text-blue-300'>Asteroid is a platform for creating and sharing knowledge.</p>
+  <figure class='mt-6 flex justify-center items-center overflow-hidden'>
+    <Image src={hero} alt='Asteroid' height={300} class='rounded-lg border-2 border-blue-100' />
+  </figure>
 </Layout>
